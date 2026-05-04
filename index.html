@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Infinity Roses</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<header class="header">
+    <div class="logo">INFINITY ROSES</div>
+
+    <nav>
+        <a href="/">Все</a>
+        <a href="/?category=1">Букет сборный</a>
+        <a href="/?category=2">На 8 марта</a>
+        <a href="/?category=3">Дизайнерский</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <div class="hero-content">
+        <h1>ЦВЕТЫ</h1>
+        <p>которые делают вас счастливее</p>
+        <a href="#catalog" class="btn">в каталог</a>
+    </div>
+</section>
+
+<section class="categories">
+    <div class="category-list">
+        <a href="/?category=1">Букет сборный</a>
+        <a href="/?category=2">На 8 марта</a>
+        <a href="/?category=3">Дизайнерский</a>
+    </div>
+</section>
+
+<section class="catalog" id="catalog">
+
+    <h1 class="brand-title">INFINITY ROSES</h1>
+    <p class="brand-subtitle">цветы, которые говорят за вас</p>
+
+    <h2>Каталог</h2>
+
+    <div class="cards">
+        {% for product in products %}
+        <div class="card">
+
+            <div class="card-img">
+                <img src="{{ url_for('static', filename='images/' + product.image) }}">
+            </div>
+
+            <div class="card-info">
+                <h3>{{ product.name }}</h3>
+                <p class="price">{{ product.price }} сомони</p>
+            </div>
+
+        </div>
+        {% endfor %}
+    </div>
+
+</section>
+
+</body>
+</html>
